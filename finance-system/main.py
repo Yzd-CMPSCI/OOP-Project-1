@@ -3,7 +3,7 @@ from account import Account
 from transaction import Transaction
 from branch import Branch
 
-
+# Self Reminder to TEST THIS B4 Code Review pls!!!! 
 # Create three clients
 client_1 = Client(1, "Alice", "alice@email.com", "0411111111")
 client_2 = Client(2, "Bob", "bob@email.com", "0422222222")
@@ -44,3 +44,46 @@ print("\nAccounts after changes:")
 account_1.display_account()
 account_2.display_account()
 account_3.display_account()
+
+# Create three transactions
+transaction_1 = Transaction(1, "Deposit", 100, "Cash deposit")
+transaction_2 = Transaction(2, "Withdrawal", 50, "ATM withdrawal")
+transaction_3 = Transaction(3, "Transfer", 200, "Money transfer")
+
+print("\nTransactions before changes:")
+transaction_1.display()
+transaction_2.display()
+transaction_3.display()
+
+transaction_1.process()
+transaction_2.cancel()
+transaction_3.update_description("Transfer to savings")
+
+# Show that completed transactions cannot be changed
+transaction_1.cancel()
+transaction_2.process()
+
+print("\nTransactions after changes:")
+transaction_1.display()
+transaction_2.display()
+transaction_3.display()
+
+
+# Create three branches
+branch_1 = Branch(1, "City Branch", "Sydney", "02 1111 1111")
+branch_2 = Branch(2, "North Branch", "Newcastle", "02 2222 2222", True)
+branch_3 = Branch(3, "West Branch", "Adelaide", "08 3333 3333")
+
+print("\nBranches before changes:")
+branch_1.display_branch()
+branch_2.display_branch()
+branch_3.display_branch()
+
+branch_1.open_branch()
+branch_2.close_branch()
+branch_3.update_phone("08 9999 9999")
+
+print("\nBranches after changes:")
+branch_1.display_branch()
+branch_2.display_branch()
+branch_3.display_branch()
