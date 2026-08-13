@@ -3,29 +3,44 @@ from account import Account
 from transaction import Transaction
 from branch import Branch
 
-# Client test
-client1 = Client(1, "Alice", "alice@email.com", "0412345678")
-client1.display_summary()
 
-# Account test
-account1 = Account("A1001", "Savings", 500.0, "Alice")
-account1.display_account()
+# Create three clients
+client_1 = Client(1, "Alice", "alice@email.com", "0411111111")
+client_2 = Client(2, "Bob", "bob@email.com", "0422222222")
+client_3 = Client(3, "Charlie", "charlie@email.com", "0433333333")
 
-# Transaction test
-t1 = Transaction(1001, "Deposit", 150.0, "Salary payment")
-t2 = Transaction(1002, "Withdrawal", 40.0, "Lunch")
-t1.process()
-t2.cancel()
-t1.update_description("Monthly salary")
-t1.display()
-t2.display()
+print("\nClients before changes:")
+client_1.display_summary()
+client_2.display_summary()
+client_3.display_summary()
 
-# Branch test
-branch1 = Branch(101, "Main Branch", "Sydney", "555-1000")
-branch2 = Branch(102, "North Branch", "Newcastle", "555-2000", True)
-branch1.open_branch()
-branch1.update_phone("555-1111")
-branch1.display_branch()
-branch2.display_branch()
+client_1.update_contact(email="newalice@email.com")
+client_2.update_contact(phone="0499999999")
+
+print("\nClients after changes:")
+client_1.display_summary()
+client_2.display_summary()
+client_3.display_summary()
 
 
+# Create three accounts
+account_1 = Account("A101", "Savings", 500, "Alice")
+account_2 = Account("A102", "Everyday", 1000, "Bob")
+account_3 = Account("A103", "Savings", 200, "Charlie")
+
+print("\nAccounts before changes:")
+account_1.display_account()
+account_2.display_account()
+account_3.display_account()
+
+account_1.deposit(100)
+account_2.deposit(200)
+
+account_1.withdraw(50)
+account_2.withdraw(100)
+account_3.withdraw(500)  # This should fail
+
+print("\nAccounts after changes:")
+account_1.display_account()
+account_2.display_account()
+account_3.display_account()
