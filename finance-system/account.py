@@ -22,6 +22,9 @@ class Account:
                 f"Cannot withdraw ${amount:.2f} from account {self.account_number}: insufficient funds. Current balance: ${self.balance:.2f}"
             )
 
+    def __str__(self):
+        return f"Account {self.account_number}: {self.account_type} | Owner: {self.owner_name} | Balance: ${self.balance:.2f}"
+
     def display_account(self):
         print(
             f"Account {self.account_number}: {self.account_type} | Owner: {self.owner_name} | Balance: ${self.balance:.2f}"

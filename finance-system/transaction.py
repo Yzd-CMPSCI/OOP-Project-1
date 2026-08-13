@@ -24,6 +24,12 @@ class Transaction:
         self.description = new_description
         print(f"Description updated to: {self.description}")
 
+    def __str__(self):
+        return (
+            f"ID: {self.transaction_id} | Type: {self.transaction_type} | "
+            f"Amount: ${self.amount:.2f} | Description: {self.description} | Status: {self.status}"
+        )
+
     def display(self):
         print(
             f"ID: {self.transaction_id} | Type: {self.transaction_type} | "

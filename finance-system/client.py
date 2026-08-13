@@ -12,7 +12,11 @@ class Client:
         if phone:
             self.phone = phone
 
+    def __str__(self):
+        return f"Client's name is #{self.client_id}: {self.name} | Preferred Contact is: {self.email}"
+
     def display_summary(self):
         print(
             f"Client {self.client_id}: {self.name} | Email: {self.email} | Phone: {self.phone} | Active: {self.active}"
         )
+

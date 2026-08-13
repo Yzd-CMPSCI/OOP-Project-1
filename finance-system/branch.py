@@ -30,3 +30,11 @@ class Branch:
             f"Branch {self.branch_number}: {self.branch_name} | "
             f"Location: {self.location} | Phone: {self.phone_number} | Status: {status}"
         )
+
+    def __str__(self):
+        """Return a readable description of the branch."""
+        status = "Open" if self.is_open else "Closed"
+        return (
+            f"Branch {self.branch_number} - {self.branch_name} | "
+            f"Location: {self.location} | Phone: {self.phone_number} | Status: {status}"
+        )
